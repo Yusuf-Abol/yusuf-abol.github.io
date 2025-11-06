@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yusuf Abol | Machine Learning Engineer</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+    <h1 class="text-3xl font-bold">Yusuf Abol</h1>
+    <button id="themeToggle" class="text-xl">🌗</button>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="p-8 max-w-3xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-2">About Me</h2>
+    <p class="text-lg leading-relaxed">
+      I’m a Machine Learning Engineer passionate about building intelligent systems,
+      exploring deep learning theory, and sharing what I learn through open notes and projects.
+    </p>
+    <a href="resume.pdf" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition">
+      📄 Download Resume
+    </a>
+  </section>
+
+  <!-- Notes Section -->
+  <section id="notes" class="p-8 max-w-5xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Learning Notes</h2>
+    <div id="notesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="p-8 max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl font-semibold mb-2">Get in Touch</h2>
+    <p>📧 <a href="mailto:yusufabol@gmail.com" class="text-blue-500 hover:underline">yusufabol@gmail.com</a></p>
+    <p class="mt-2">
+      <a href="https://github.com/yusufabol" class="text-blue-500 hover:underline">GitHub</a> |
+      <a href="https://linkedin.com/in/yusufabol" class="text-blue-500 hover:underline">LinkedIn</a>
+    </p>
+  </section>
+
+  <!-- Notes Script -->
+  <script>
+  const notes = [
+    { title: "Deep Learning", file: "deep_learning.pdf", desc: "Foundational notes on neural networks and optimization." },
+    { title: "Transformers", file: "transformers.pdf", desc: "Understanding attention and large language models." },
+    { title: "Bayesian Methods", file: "bayesian_methods.pdf", desc: "Probabilistic thinking and inference in ML." }
+  ];
+
+  const container = document.getElementById("notesGrid");
+  notes.forEach(n => {
+    container.innerHTML += `
+      <div class='bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow hover:shadow-xl transition'>
+        <h3 class='text-xl font-semibold mb-2'>${n.title}</h3>
+        <p class='text-sm opacity-80 mb-3'>${n.desc}</p>
+        <a href='notes/${n.file}' target='_blank' class='text-blue-500 hover:underline'>View PDF →</a>
+      </div>`;
+  });
+  </script>
+
+  <!-- Theme Toggle Script -->
+  <script>
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+  </script>
+
+</body>
+</html>
